@@ -14,6 +14,7 @@ public class Main {
             System.out.println("Menu");
             System.out.println("1.Agregar");
             System.out.println("2.Mostrar");
+            System.out.println("3.Buscar");
             System.out.println("3.Salir");
             int opcion= scanner.nextInt();
 
@@ -51,6 +52,28 @@ public class Main {
                     System.out.println("-------------------------");
                     break;
                 case 3:
+                    System.out.println("Ingrese la placa a buscar: ");
+                    String placaBuscar=scanner.next();
+                    boolean encontrado=false;
+                    for (Vehiculo vehiculo:listaVehiculos){
+                    if (vehiculo.getPlaca().equals(placaBuscar)) {
+                        System.out.println("VEHICULO ENCONTRADO");
+                        System.out.println("Placa: " + vehiculo.getPlaca());
+                        System.out.println("Modelo: " + vehiculo.getModelo());
+                        System.out.println("Marca: " + vehiculo.getMarca());
+                        System.out.println("Tipo: " + vehiculo.getTipo());
+                        System.out.println("Color: " + vehiculo.getColor());
+                        encontrado=true;
+                        break;
+                    }
+                    }
+                    if (!encontrado){
+                        System.out.println("-----------------------");
+                        System.out.println("VEHICULO NO ENCONTRADO");
+                        System.out.println("-----------------------");
+                    }
+                    break;
+                case 4:
                     System.out.println("Saliendo.....");
                     return;
                 default:
